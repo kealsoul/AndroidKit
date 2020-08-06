@@ -1,0 +1,4 @@
+include ':m-home'
+include ':lib-base'
+include ':app'
+rootProject.name = "AndroidKit"

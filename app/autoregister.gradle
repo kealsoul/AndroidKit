@@ -1,0 +1,13 @@
+apply plugin: 'auto-register'
+autoregister {
+    registerInfo = [
+            [
+                    'scanInterface'           : 'com.keal.base.autoregister.IApplication'
+                    , 'codeInsertToClassName' : 'com.keal.base.autoregister.ApplicationManager'
+                    , 'codeInsertToMethodName': 'init'
+                    , 'registerMethodName'    : 'register' //
+            ]
+    ]
+}
+
+//https://github.com/luckybilly/AutoRegister

@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+apply from: 'autoregister.gradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        applicationId "com.kealsoul.androidkit"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 4
+        versionName "1.0.3"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                //AROUTER_GENERATE_DOC: "enable",
+            }
+        }
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi-v7a' //, 'x86','armeabi', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+        if (isRelease) {
+            manifestPlaceholders.put('APP_NAME', "正大助手")
+            manifestPlaceholders.put('BAIDU_MTL_ID', "649644d490")
+        } else {
+            manifestPlaceholders.put('BAIDU_MTL_ID', "efefa12c8e")
+            if (isDev) {
+                manifestPlaceholders.put('APP_NAME', "正大助手-开发")
+            }
+            if (isBeta) {
+                manifestPlaceholders.put('APP_NAME', "正大助手-内测")
+            }
+        }
+        buildConfigField("String", "APP_BUILD_TIME", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+        buildConfigField 'boolean', 'NET_TYPE_IS_RELEASE', "$isRelease"
+        buildConfigField 'boolean', 'NET_TYPE_IS_DEV', "$isDev"
+        buildConfigField 'boolean', 'NET_TYPE_IS_BETA', "$isBeta"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            if (MoudleDebug) {
+                manifest.srcFile 'src/app/AndroidManifest.xml'
+                java.srcDirs = ['src/app/java', 'src/main/java']
+                res.srcDirs = ['src/app/res', 'src/main/res']
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java']
+                res.srcDirs = ['src/main/res']
+            }
+            jniLibs.srcDir 'libs'
+
+        }
+    }
+
+    signingConfigs {
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility versions.java
+        targetCompatibility versions.java
+    }
+    dataBinding {
+        enabled true
+    }
+    packagingOptions { exclude 'META-INF/lib_release.kotlin_module' }
+}
+configurations.all {
+    resolutionStrategy {
+        force 'com.google.code.gson:gson:2.8.5'//暂时不要升级，和别的包有冲突 com.blankj:utilcodex:1.26.0
+    }
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation androidx.core_ktx
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation project(':lib-base')
+    implementation project(':m-home')
+    kapt deps.ARouterCompiler
+}

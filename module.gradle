@@ -1,0 +1,76 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    compileSdkVersion versions.compileSdk
+    resourcePrefix funResourcePrefix()
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                //AROUTER_GENERATE_DOC: "enable",
+            }
+        }
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi-v7a' //, 'x86','armeabi', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+    compileOptions {
+        sourceCompatibility versions.java
+        targetCompatibility versions.java
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    lintOptions {
+        abortOnError false
+    }
+    dataBinding {
+        enabled true
+    }
+    sourceSets {
+        main {
+            if (MoudleDebug) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java.srcDirs = ['src/app/java', 'src/main/java']
+                res.srcDirs = ['src/app/res', 'src/main/res']
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java']
+                res.srcDirs = ['src/main/res']
+            }
+            jniLibs.srcDir 'libs'
+        }
+    }
+}
+def funResourcePrefix(){
+    if(project.getName().contains("_")){
+        return project.getName().split("_")[1]
+    }else if(project.getName().contains("-")){
+        return project.getName().split("-")[1]
+    }else{
+        return project.getName()
+    }
+
+}
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    androidTestImplementation test.runner
+    androidTestImplementation test.espresso
+    testImplementation test.junit
+    implementation androidx.constraintLayout
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    kapt "com.jakewharton:butterknife-compiler:$versions.butterknife"
+    kapt deps.ARouterCompiler
+    implementation project(':lib-base')
+//    implementation project(':lib-providers')
+}
+
+

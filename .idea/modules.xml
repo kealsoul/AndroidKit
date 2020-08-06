@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidKit.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidKit.iml" group="AndroidKit" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="AndroidKit/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lib-base/lib-base.iml" filepath="$PROJECT_DIR$/.idea/modules/lib-base/lib-base.iml" group="AndroidKit/lib-base" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/m-home/m-home.iml" filepath="$PROJECT_DIR$/.idea/modules/m-home/m-home.iml" group="AndroidKit/m-home" />
+    </modules>
+  </component>
+</project>
