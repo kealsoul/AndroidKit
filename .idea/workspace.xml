@@ -30,28 +30,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bca0fa5-27a2-4936-92b4-b4a7f4b07e04" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/autoregister.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/keal/androidKit/App.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/consumer-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/src/androidTest/java/com/keal/base/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/src/main/java/com/keal/base/autoregister/ApplicationManager.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/src/main/java/com/keal/base/autoregister/Docking.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/src/main/java/com/keal/base/autoregister/IApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/src/main/java/com/keal/base/autoregister/MainProcess.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib-base/src/test/java/com/keal/base/ExampleUnitTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/consumer-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/src/androidTest/java/com/keal/home/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/src/main/java/com/keal/home/HomeApp.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/m-home/src/test/java/com/keal/home/ExampleUnitTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/lib-base/lib-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/lib-base/lib-base.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/m-home/m-home.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/m-home/m-home.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/keal/androidKit/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/keal/androidKit/App.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +51,12 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -95,7 +84,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib-base" />
-    <property name="memory.settings.postsync.last.time.stamp" value="1596695051675" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1596787840666" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -196,34 +185,43 @@
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="329" y="23" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.23.1440.798@0.23.1440.798" timestamp="1596704945817" />
-    <state width="1398" height="603" key="GridCell.Tab.0.bottom" timestamp="1596707630930">
+    <state width="1398" height="603" key="GridCell.Tab.0.bottom" timestamp="1596773951449">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
-    <state width="1398" height="603" key="GridCell.Tab.0.bottom/0.23.1440.798@0.23.1440.798" timestamp="1596707630930" />
-    <state width="1398" height="603" key="GridCell.Tab.0.center" timestamp="1596707630930">
+    <state width="1398" height="603" key="GridCell.Tab.0.bottom/0.23.1440.798@0.23.1440.798" timestamp="1596773951449" />
+    <state width="1398" height="554" key="GridCell.Tab.0.bottom/0.23.1440.801@0.23.1440.801" timestamp="1596709593630" />
+    <state width="1398" height="603" key="GridCell.Tab.0.center" timestamp="1596773951448">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
-    <state width="1398" height="603" key="GridCell.Tab.0.center/0.23.1440.798@0.23.1440.798" timestamp="1596707630930" />
-    <state width="1398" height="603" key="GridCell.Tab.0.left" timestamp="1596707630929">
+    <state width="1398" height="603" key="GridCell.Tab.0.center/0.23.1440.798@0.23.1440.798" timestamp="1596773951448" />
+    <state width="1398" height="554" key="GridCell.Tab.0.center/0.23.1440.801@0.23.1440.801" timestamp="1596709593629" />
+    <state width="1398" height="603" key="GridCell.Tab.0.left" timestamp="1596773951448">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
-    <state width="1398" height="603" key="GridCell.Tab.0.left/0.23.1440.798@0.23.1440.798" timestamp="1596707630929" />
-    <state width="1398" height="603" key="GridCell.Tab.0.right" timestamp="1596707630930">
+    <state width="1398" height="603" key="GridCell.Tab.0.left/0.23.1440.798@0.23.1440.798" timestamp="1596773951448" />
+    <state width="1398" height="554" key="GridCell.Tab.0.left/0.23.1440.801@0.23.1440.801" timestamp="1596709593629" />
+    <state width="1398" height="603" key="GridCell.Tab.0.right" timestamp="1596773951449">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
-    <state width="1398" height="603" key="GridCell.Tab.0.right/0.23.1440.798@0.23.1440.798" timestamp="1596707630930" />
+    <state width="1398" height="603" key="GridCell.Tab.0.right/0.23.1440.798@0.23.1440.798" timestamp="1596773951449" />
+    <state width="1398" height="554" key="GridCell.Tab.0.right/0.23.1440.801@0.23.1440.801" timestamp="1596709593630" />
+    <state x="399" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1596787927480">
+      <screen x="0" y="23" width="1440" height="798" />
+    </state>
+    <state x="399" y="254" key="com.intellij.ide.util.TipDialog/0.23.1440.798@0.23.1440.798" timestamp="1596787927480" />
     <state x="481" y="273" key="edit.logcat.filter.dialog.dimensions" timestamp="1596707115399">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state x="481" y="273" key="edit.logcat.filter.dialog.dimensions/0.23.1440.798@0.23.1440.798" timestamp="1596707115399" />
-    <state x="386" y="179" width="667" height="486" key="find.popup" timestamp="1596707860785">
+    <state x="386" y="179" width="667" height="486" key="find.popup" timestamp="1596770221883">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
-    <state x="386" y="179" width="667" height="486" key="find.popup/0.23.1440.798@0.23.1440.798" timestamp="1596707860785" />
-    <state width="380" height="36" key="javadoc.popup.new" timestamp="1596704354206">
-      <screen x="0" y="23" width="1440" height="798" />
+    <state x="386" y="179" width="667" height="486" key="find.popup/0.23.1440.798@0.23.1440.798" timestamp="1596770221883" />
+    <state width="380" height="37" key="javadoc.popup.new" timestamp="1596781374691">
+      <screen x="0" y="23" width="1440" height="801" />
     </state>
     <state width="380" height="36" key="javadoc.popup.new/0.23.1440.798@0.23.1440.798" timestamp="1596704354206" />
+    <state width="380" height="37" key="javadoc.popup.new/0.23.1440.801@0.23.1440.801" timestamp="1596781374691" />
     <state x="385" y="145" width="670" height="676" key="search.everywhere.popup" timestamp="1596706345318">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
@@ -234,7 +232,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/keal/androidKit/App.kt</url>
-          <line>15</line>
+          <line>21</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
