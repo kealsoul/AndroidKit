@@ -1,11 +1,21 @@
 package com.keal.androidKit
 
 import android.app.Application
+import android.content.Context
+import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.CrashUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.LogUtils.IFormatter
+import com.blankj.utilcode.util.ProcessUtils
+import com.chaitai.crm.LifecycleLog
 import com.keal.base.autoregister.Docking
+import com.keal.base.provider.param.IGlobalParamProviders
+import com.keal.base.utils.ThreadUtil
+import com.keal.base.utils.TimeRuler
+import com.simple.spiderman.SpiderMan
+import com.tencent.bugly.crashreport.CrashReport
+import io.reactivex.plugins.RxJavaPlugins
 import java.util.*
 
 
@@ -24,8 +34,30 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        TimeRuler.start("MyApplication", "onCreate start")
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog()    // 打印日志
+            ARouter.openDebug()  // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(this)
         initLog()
+        initBugly()
         initCrash()
+        Docking.notifyOnCreate(this)
+        RxJavaPlugins.setErrorHandler {
+            LogUtils.e(it.toString())
+        }
+        if (BuildConfig.DEBUG) {
+            LifecycleLog.init(this)
+        }
+        SpiderMan.init(this);
+        TimeRuler.start("MyApplication", "onCreate end")
+        GlobalParamProviders.startMillis = System.currentTimeMillis()
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        Docking.notifyAttachBaseContext(base)
+        super.attachBaseContext(base)
     }
 
     private fun initLog() {
@@ -57,11 +89,43 @@ class App : Application() {
         LogUtils.i(config.toString())
     }
 
+    private fun initBugly() {
+        ThreadUtil.runOnNewThread(Runnable {
+            val globalParamProviders = ARouter.getInstance().navigation(
+                IGlobalParamProviders::class.java
+            )
+            val context = applicationContext
+            // 获取当前包名
+            val packageName = context.packageName
+            // 获取当前进程名
+            val processName = ProcessUtils.getCurrentProcessName()
+            // 设置是否为上报进程
+            val strategy = CrashReport.UserStrategy(context)
+            strategy.isUploadProcess = processName == null || processName == packageName
+            CrashReport.initCrashReport(
+                applicationContext,
+                globalParamProviders.getBulgyAppId(),
+                !globalParamProviders.isNetRelease() || BuildConfig.DEBUG,
+                strategy
+            )
+
+            CrashReport.setSdkExtraData(
+                this@App,
+                "BUILD_TIME",
+                ARouter.getInstance().navigation(IGlobalParamProviders::class.java).buildTime()
+            )
+        })
+//        navigationIUserCenter()?.getUserInfo()?.salesmanId?.observeForever {
+//            it?.let {
+//                CrashReport.setUserId(it)
+//            }
+//        }
+    }
+
     private fun initCrash() {
         CrashUtils.init { crashInfo, _ ->
             LogUtils.e(crashInfo)
             AppUtils.relaunchApp()
-
         }
     }
 }

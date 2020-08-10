@@ -26,21 +26,13 @@ android {
             abiFilters 'armeabi-v7a' //, 'x86','armeabi', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
         if (isRelease) {
-            manifestPlaceholders.put('APP_NAME', "正大助手")
-            manifestPlaceholders.put('BAIDU_MTL_ID', "649644d490")
+            manifestPlaceholders.put('APP_NAME', "AndroidKit-release")
         } else {
-            manifestPlaceholders.put('BAIDU_MTL_ID', "efefa12c8e")
-            if (isDev) {
-                manifestPlaceholders.put('APP_NAME', "正大助手-开发")
-            }
-            if (isBeta) {
-                manifestPlaceholders.put('APP_NAME', "正大助手-内测")
-            }
+            manifestPlaceholders.put('APP_NAME', "AndroidKit-debug")
         }
         buildConfigField("String", "APP_BUILD_TIME", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
         buildConfigField 'boolean', 'NET_TYPE_IS_RELEASE', "$isRelease"
         buildConfigField 'boolean', 'NET_TYPE_IS_DEV', "$isDev"
-        buildConfigField 'boolean', 'NET_TYPE_IS_BETA', "$isBeta"
     }
     buildTypes {
         release {

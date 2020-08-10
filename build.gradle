@@ -65,7 +65,9 @@ buildscript {
                 'luban'                            : 'top.zibin:Luban:1.1.8',
                 'flowLayout'                       : 'com.hyman:flowlayout-lib:1.1.2',
                 'easyFloat'                        : 'com.github.princekin-f:EasyFloat:1.3.3',
-                'zxing'                            : 'com.google.zxing:core:3.4.0'
+                'zxing'                            : 'com.google.zxing:core:3.4.0',
+                'spider_man'                       : 'com.simple:spiderman:1.1.6',
+                'spider_man_no_op'                 : 'com.simple:spiderman-no-op:1.1.4'
         ]
 
         androidx = [
